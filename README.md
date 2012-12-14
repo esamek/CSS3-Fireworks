@@ -29,4 +29,6 @@ TODO
 ------------
 
 * Fix container dimension detect
-* remove jquery.transit.js dependency
+* Remove jquery.transit.js dependency
+* Add methods for stopping, starting, etc
+* Maybe remove reuse of fireworks

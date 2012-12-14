@@ -29,9 +29,9 @@
     cloneTemplate: function(){
       this.firework_list = [];
       var that = this;
-      var $firework = $('<div />').html('&bull;');
+      var $firework = $(this.options.fireworkTemplate);
 
-      for(var i = 0;i<that.options.totalFireworks;i++){
+      for(var i = 0;i<this.options.totalFireworks;i++){
         var copy = $firework.clone();
         copy.css('position','absolute').addClass('a_firework');
         this.firework_list.push(copy);
@@ -43,7 +43,7 @@
 
     setup: function(){
       var that = this;
-      var maxW = $(that.container).outerWidth();
+      var maxW = this.options.widthMax;
 
       $.each(that.firework_list,function(i,k){
          var start = Math.floor(Math.random()*maxW);
@@ -58,8 +58,8 @@
     },
     getAscendLeft: function(f){
       var that = this,
-          x = $(f).css('left'),
-          o = Math.floor(Math.random()*that.options.offsetMax);
+          x = $(f).css('left') + that.options.offsetMax,
+          o = Math.floor(Math.random() * x);
       return (x > that.options.widthMax / 2) ? o * -1 : o;
     },
     getAscendTime: function(){
@@ -114,7 +114,7 @@
     startShow: function(){
       var that = this;
       this.cloneTemplate();
-      $(that.container).css('position','relative');
+      $(that.container).css('position','relative').css('overflow-y','hidden');
       this.setup();
 
       var totalTime = this.options.timeMax + this.options.explodeTimeMax;
