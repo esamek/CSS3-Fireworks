@@ -23,3 +23,10 @@ Available/Default options
           'heightMax': $(el).outerHeight(),
           'widthMax' : $(el).outerWidth()
         }
+
+
+TODO
+------------
+
+* Fix container dimension detect
+* remove jquery.transit.js dependency
