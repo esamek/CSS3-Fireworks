@@ -81,16 +81,19 @@
       var that = this;
       return Math.floor(Math.random() * that.options.widthMax);
     },
-    reset: function(f){
+    _reset: function(f){
       $(f).css({
         'transform': 'scale(1)',
         'top': '101%',
         'opacity': 1
       });
+
     },
 
-    doFireworks: function(me){
-        var that = me;
+    doFireworks: function(){
+        var that = this;
+
+        console.log(this);
 
       $.each(that.firework_list, function(i,f){
           f.css('color',that.getColor());
@@ -102,10 +105,11 @@
                 'scale': that.getExplodeRadius(),
                 'opacity': 0
               },that.getExplodeTime(),'out',function(){
-                  that.reset(f);
+                  that._reset(f);
               });
           });
       });
+
     },
     startShow: function(){
       var that = this;
@@ -115,7 +119,9 @@
 
       var totalTime = this.options.timeMax + this.options.explodeTimeMax;
 
-      setInterval(that.doFireworks(that),totalTime);
+      setInterval(function() {
+        that.doFireworks();
+      } ,totalTime);
     }
 
 
