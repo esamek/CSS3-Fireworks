@@ -140,6 +140,3 @@
 
 
 
-$(function(){
-  $('.hero-unit').fireworks();
-});
