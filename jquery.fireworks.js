@@ -7,7 +7,7 @@
     this.options = $.extend({
       'colors': ["#ea4648","#f5871e","#de1c85","#f9c031","#004b77","#00b2e9"],
       'totalFireworks' : 10,
-      'offsetMax': 100,
+      'offsetMax': 300,
       'fireworkTemplate': '<div>&bull;</div>',
       'timeMax' : 1200,
       'timeMin' : 400,
